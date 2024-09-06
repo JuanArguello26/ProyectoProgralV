@@ -8,6 +8,8 @@ public class Excercise2_13 {
 
         int num, adddiv = 0, i=1;
 
+        System.out.println("Hi, this is a test message");
+
         System.out.println("Please enter the first number that you want to verify");
 
         num= read.nextInt();
