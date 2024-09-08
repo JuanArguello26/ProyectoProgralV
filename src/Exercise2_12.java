@@ -13,195 +13,175 @@ public class Exercise2_12 {
 
         myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        myframe.setVisible(true); // VOY AQUI CAMBIANDOLE EL IDIOMA
-
+        myframe.setVisible(true);
     }
-
 }
-
 
 class framecalculator extends JFrame{
 
     public framecalculator() {
 
-        setTitle("Calculadora");
+        setTitle("Calculator");
 
         setBounds(500,300,450,300);
 
-        LaminaCalculadora milamina= new LaminaCalculadora();
+        LamC mylam= new LamC();
 
-        add(milamina);
-
-        //pack(); //Darle un tamaño por defecto a lo que hay en su interior
-
-
-
+        add(mylam);
 
     }
 }
 
-class LaminaCalculadora extends JPanel{
+class LamC extends JPanel{
 
-    public LaminaCalculadora() {
+    public LamC() {
 
-        principio=true;
+        begin=true;
 
         setLayout(new BorderLayout());
 
-        pantalla = new JButton("0");
+        screen = new JButton("0");
 
-        pantalla.setEnabled(false);
+        screen.setEnabled(false);
 
-        add(pantalla, BorderLayout.NORTH);
+        add(screen, BorderLayout.NORTH);
 
-        milamina2= new JPanel();
+        mylam2= new JPanel();
 
-        milamina2.setLayout(new GridLayout(4,4));
+        mylam2.setLayout(new GridLayout(4,4));
 
-        ActionListener insertar= new InsertaNumero();
+        ActionListener insert= new InsertNum();
 
-        ActionListener orden= new AccionOrden();
+        ActionListener order= new AccionOrder();
 
+        addmybutton("7", insert);
 
-        ponerBoton("7", insertar);
+        addmybutton("8", insert);
 
-        ponerBoton("8", insertar);
+        addmybutton("9", insert);
 
-        ponerBoton("9", insertar);
+        addmybutton("/", order);
 
-        ponerBoton("/", orden);
+        addmybutton("4", insert);
 
-        ponerBoton("4", insertar);
+        addmybutton("5", insert);
 
-        ponerBoton("5", insertar);
+        addmybutton("6", insert);
 
-        ponerBoton("6", insertar);
+        addmybutton("*", order);
 
-        ponerBoton("*", orden);
+        addmybutton("1", insert);
 
-        ponerBoton("1", insertar);
+        addmybutton("2", insert);
 
-        ponerBoton("2", insertar);
+        addmybutton("3", insert);
 
-        ponerBoton("3", insertar);
+        addmybutton("-", order);
 
-        ponerBoton("-", orden);
+        addmybutton("0", insert);
 
-        ponerBoton("0", insertar);
+        addmybutton(".", insert);
 
-        ponerBoton(".", insertar);
+        addmybutton("=", order);
 
-        ponerBoton("=", orden);
+        addmybutton("+", order);
 
-        ponerBoton("+", orden);
+        add(mylam2, BorderLayout.CENTER);
 
-
-
-        add(milamina2, BorderLayout.CENTER);
-
-        ultimaOperacion="=";
-
+        lastop="=";
 
     }
 
-    private void ponerBoton(String rotulo, ActionListener oyente) {
+    private void addmybutton (String mylabel, ActionListener mylistener) {
 
-        JButton boton= new JButton(rotulo);
+        JButton boton= new JButton(mylabel);
 
-        boton.addActionListener(oyente);
+        boton.addActionListener(mylistener);
 
-        milamina2.add(boton);
+        mylam2.add(boton);
 
     }
 
-    private class InsertaNumero implements ActionListener{
+    private class InsertNum implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
 
-            String entrada= e.getActionCommand();
+            String entry= e.getActionCommand();
 
-            if(principio) {
+            if(begin) {
 
-                pantalla.setText("");
+                screen.setText("");
 
-                principio=false;
+                begin=false;
 
             }
 
-            pantalla.setText(pantalla.getText() + entrada);
-
+            screen.setText(screen.getText() + entry);
 
         }
 
-
     }
 
-    private class AccionOrden implements ActionListener{
+    private class AccionOrder implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
 
-            String operacion = e.getActionCommand();
+            String op = e.getActionCommand();
 
-            System.out.println(operacion);
+            System.out.println(op);
 
-            calcular(Double.parseDouble(pantalla.getText()));
+            calc(Double.parseDouble(screen.getText()));
 
-            ultimaOperacion=operacion;
+            lastop=op;
 
-            principio=true;
-
-        }
-
-        public void calcular(double x) {
-
-            if(ultimaOperacion.equals("+")) {
-
-                resultado+=x;
-
-                System.out.println(resultado);
-
-            }
-            else if(ultimaOperacion.equals("-")) {
-
-                resultado-=x;
-            }
-
-            else if(ultimaOperacion.equals("*")) {
-
-                resultado*=x;
-            }
-            else if(ultimaOperacion.equals("/")) {
-
-                resultado/=x;
-            }
-            else if(ultimaOperacion.equals("=")) {
-
-                resultado=x;
-            }
-
-            pantalla.setText("" + resultado);
+            begin=true;
 
         }
 
+        public void calc(double x) {
+
+            if(lastop.equals("+")) {
+
+                result+=x;
+
+                System.out.println(result);
+
+            }
+            else if(lastop.equals("-")) {
+
+                result-=x;
+            }
+
+            else if(lastop.equals("*")) {
+
+                result*=x;
+            }
+            else if(lastop.equals("/")) {
+
+                result/=x;
+            }
+            else if(lastop.equals("=")) {
+
+                result=x;
+            }
+
+            screen.setText("" + result);
+
+        }
     }
 
+    private JPanel mylam2;
 
-    private JPanel milamina2;
+    private JButton screen;
 
-    private JButton pantalla;
+    private boolean begin;
 
-    private boolean principio;
+    private double result;
 
-    private double resultado;
-
-    private String ultimaOperacion;
-
-
-
-
+    private String lastop;
 
 }

@@ -38,13 +38,11 @@ public class Excercise2_13 {
 
                 System.out.println("The result of the sum is: " + adddiv);
 
-
                 if(adddiv == num){
 
                     System.out.println("");
 
                     System.out.println(num + " is a perfect number.");
-
 
             }else{
 
@@ -55,8 +53,7 @@ public class Excercise2_13 {
             }
         }
 
-
-
+         read.close();
 
     }
 }

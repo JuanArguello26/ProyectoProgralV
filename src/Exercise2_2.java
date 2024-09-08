@@ -21,6 +21,8 @@ public class Exercise2_2 {
             operation();
         }
 
+       read.close();
+
     }
 
     public static void  operation(){
@@ -31,8 +33,10 @@ public class Exercise2_2 {
 
             f=f*i;
 
-
         }
+
         System.out.println("The factorial of: " + n1 + " is: " + f );
+
     }
 }
+

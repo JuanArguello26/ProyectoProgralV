@@ -24,6 +24,8 @@ public class Exercise2_5 {
 
         System.out.println("The inverse of the number would be: " + n2);
 
+        read.close();
+
     }
 
 }

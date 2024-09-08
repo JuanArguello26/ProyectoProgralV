@@ -21,6 +21,8 @@ public class Exercise2_15 {
 
         }
 
+        read.close();
+
     }
 
     static boolean isArmstrong(int yorn){
@@ -39,6 +41,10 @@ public class Exercise2_15 {
 
 
         }
+
         return sum == aux;
+
+
     }
+
 }

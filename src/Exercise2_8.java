@@ -31,5 +31,7 @@ public class Exercise2_8 {
             System.out.println("The MCM of " + n1 + " and " + n2 + " is: " + i);
         }
 
+        keyboard.close();
+
    }
 }

@@ -27,5 +27,7 @@ public class Exercise2_7 {
 
         System.out.println("The MCD is: " + n1);
 
+        keyboard.close();
+
     }
 }

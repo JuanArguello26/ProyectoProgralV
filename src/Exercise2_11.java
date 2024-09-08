@@ -17,8 +17,7 @@ public class Exercise2_11 {
            System.out.println(number+ " * " + i + " =" + (number*i));
        }
 
-
-
+       read.close();
 
     }
 }

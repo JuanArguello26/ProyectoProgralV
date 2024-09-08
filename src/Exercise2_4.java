@@ -31,5 +31,7 @@ public class Exercise2_4 {
 
         System.out.println("The number of vowels is: " + count);
 
+        read.close();
+
     }
 }

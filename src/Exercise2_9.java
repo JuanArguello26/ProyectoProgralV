@@ -44,5 +44,7 @@ public class Exercise2_9 {
             System.out.println("The word is a palindrome, finishing the code.");
         }
 
+        read.close();
+
     }
 }

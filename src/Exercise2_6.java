@@ -23,5 +23,7 @@ public class Exercise2_6 {
             b=c;
 
         }
+
+        keyboard.close();
     }
 }
