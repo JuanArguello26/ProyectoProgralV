@@ -16,7 +16,6 @@ public class Exercise2_22 {
         minor = 0;
         major = 0;
 
-
         for (int i=0; i < amount; i++) {
             int num= Integer.parseInt(JOptionPane.showInputDialog("Please enter another number: "+(i+1)));
             if (i==0) {
@@ -31,9 +30,6 @@ public class Exercise2_22 {
                 major = num;
             }
         }
-
-
-
 
         JOptionPane.showMessageDialog(null, "The MAJOR number is: "+major+"  and the MINOR number is: "+minor);
     }
